@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Tân Đoàn - CSS trong Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            font-size: 62.5%;
+            box-sizing: border-box;
+        }
+
+        *, *::before, *::after {
+             box-sizing: inherit;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem; 
+            line-height: 1.6; 
+            background-color: #f0f0f0; 
+            color: #333; 
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit; 
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        :root {
+            --main-red: #be3144;
+            --main-blue: #45567d;
+            --main-gray: #303841;
+            --main-white: #f0f0f0;
+            --text-gray-light: #cbd5e1; 
+            --coral: #ff7f50;
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            background-color: var(--main-red);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+            z-index: 50;
+        }
+
+        #nav-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1.5rem; 
+        }
+
+        #nav-list li a {
+            display: block;
+            font-size: 1.8rem; 
+            padding: 2rem 1.5rem; 
+            color: white;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #nav-list li a:hover {
+            background-color: var(--main-blue);
+        }
+
+        #welcome-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: #000;
+            background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+            color: white;
+            text-align: center;
+            padding: 0 1rem; 
+        }
+
+        #welcome-section h1 {
+            font-size: 5rem; 
+        }
+
+        #welcome-section p {
+            font-size: 2.4rem; 
+            color: var(--main-red);
+            font-weight: 300;
+            font-style: italic;
+            margin-top: 1rem; 
+        }
+
+        #projects {
+            background-color: var(--main-blue);
+            width: 100%;
+            padding: 6rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        #projects h2 {
+            font-size: 3.6rem; 
+            max-width: 48rem; 
+            margin: 0 auto 4rem auto; 
+            border-bottom: 2px solid var(--main-white);
+            padding-bottom: 1rem;
+        }
+
+        #projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2.5rem; 
+            max-width: 112rem; 
+            margin: 0 auto 4rem auto;
+        }
+
+        .project {
+            background-color: var(--main-gray);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+            border-radius: 0.5rem; 
+            color: white;
+            display: block;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+        }
+
+        .project-image {
+            width: 100%;
+            object-fit: cover;
+            height: calc(100% - 7rem); 
+        }
+
+        .project-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem; 
+            height: 7rem; 
+            font-size: 1.8rem; 
+            font-weight: 500; 
+        }
+        .news-button { 
+            display: inline-block;
+            padding: 1rem 2rem; 
+            background-color: var(--main-gray);
+            border-radius: 0.375rem;
+            color: white;
+            font-size: 1.8rem; 
+            font-weight: 500; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .news-button:hover {
+            background-color: var(--main-red);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+            transform: translateY(-0.25rem); 
+        }
+
+        .news-button i {
+            margin-left: 0.75rem; 
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .news-button:hover i {
+             transform: translateX(0.375rem); 
+        }
+
+        .news-link-list {
+            margin-top: 3rem; 
+            text-align: left;
+            max-width: 64rem; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .news-link-list h3 {
+            font-size: 2rem; 
+            color: white;
+            font-weight: 600; 
+            margin-bottom: 1rem; 
+            border-bottom: 1px solid #6b7280; 
+            padding-bottom: 0.5rem; 
+            text-align: left; 
+        }
+
+        .news-link-list ul {
+            list-style: disc;
+            padding-left: 1.5rem; 
+        }
+        .news-link-list li {
+             margin-bottom: 0.5rem; 
+        }
+
+        .news-link-list a {
+            color: var(--text-gray-light);
+            transition: color 0.3s ease-in-out;
+        }
+
+        .news-link-list a:hover {
+            color: var(--main-red);
+            text-decoration: underline;
+        }
+
+        #contact {
+            width: 100%;
+            min-height: 80vh;
+            background-color: var(--main-gray);
+            padding: 5rem 1.5rem; 
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-section-header {
+            margin-bottom: 3rem; 
+        }
+
+        .contact-section-header h2 {
+            font-size: 4rem;
+        }
+
+        .contact-section-header p {
+            font-size: 1.8rem; 
+            font-style: italic;
+            margin-top: 1rem; 
+            color: #d1d5db; 
+        }
+
+        .contact-links {
+            width: 100%;
+            max-width: 80rem; 
+            margin-top: 3rem; 
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem; 
+        }
+
+        .contact-details { 
+            font-size: 2rem; 
+            color: white;
+            padding: 0.75rem 1.25rem; 
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .contact-details:hover {
+            transform: translateY(-0.375rem); 
+            color: var(--main-red);
+        }
+
+        .contact-details i {
+            margin-right: 0.5rem; 
+        }
+
+        footer {
+            background-color: var(--main-gray); 
+            padding: 2rem; 
+            border-top: 4px solid var(--main-red);
+            display: flex;
+            flex-direction: column; 
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            font-size: 1.4rem; 
+            font-weight: 300;
+            color: #d1d5db; 
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1); /* shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] */
+        }
+
+        footer p {
+            margin: 0.5rem; 
+        }
+
+        footer a {
+            color: white;
+            font-weight: 500; 
+            transition: color 0.3s ease-in-out;
+        }
+
+        footer a:hover {
+             color: var(--coral); 
+        }
+
+        @media (min-width: 768px) { 
+            #nav-list {
+                 margin-right: 2rem; 
+            }
+            #nav-list li a {
+                 font-size: 1.8rem;
+            }
+             #welcome-section h1 {
+                 font-size: 6rem; 
+            }
+             #welcome-section p {
+                 font-size: 3rem; 
+            }
+            #projects {
+                 padding: 8rem 2.5rem; 
+            }
+            #projects h2 {
+                 font-size: 4.8rem; 
+                 margin-bottom: 6rem; 
+            }
+             #projects-grid {
+                 gap: 4rem; 
+                 margin-bottom: 6rem; 
+            }
+             .news-button {
+                 font-size: 2rem; 
+            }
+            .contact-section-header h2 {
+                 font-size: 6rem; 
+            }
+             .contact-section-header p {
+                 font-size: 2rem; 
+            }
+             .contact-links {
+                 margin-top: 4rem; 
+                 gap: 2.5rem; 
+            }
+            .contact-details {
+                 font-size: 2.4rem; 
+            }
+            footer {
+                 flex-direction: row; 
+                 text-align: left;
+                 font-size: 1.6rem; 
+            }
+             footer p {
+                 margin: 1rem; 
+            }
+             footer p:first-child {
+                 max-width: 32rem; 
+            }
+        }
+         @media (min-width: 1024px) { 
+             #welcome-section h1 {
+                 font-size: 7rem; 
+            }
+        }
+
+
+    </style>
+</head>
+<body class="bg-gray-100"> <nav id="navbar"> <ul id="nav-list">
+            <li><a href="#welcome-section">Giới thiệu</a></li>
+            <li><a href="#projects">Tin tức</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <section id="welcome-section">
+        <h1>Tôi Là Hoàng Phúc Bảo</h1>
+        <p>Một nhà Phát Triển Web</p>
+    </section>
+
+    <section id="projects">
+        <h2>Tin Tức Mới Nhất Honkai: Star Rail</h2>
+        <div id="projects-grid">
+            <a href="tin-tuc-1.html" class="project"> <img class="project-image" src="https://images6.alphacoders.com/136/1362739.jpeg">
+                <p class="project-title">
+                    Cập nhật phiên bản 2.2: Chi tiết nhân vật mới Robin & Boothill
+                </p>
+            </a>
+             <a href="tin-tuc-2.html" class="project">
+                 <img class="project-image" src="https://fastcdn.hoyoverse.com/content-v2/hkrpg/122344/9b9a6addf172ad0ae14b935c458bb25d_5560285825714898254.jpg">
+                <p class="project-title">
+                    Sự kiện giới hạn: Lễ Hội Penacony - Nhận Ngọc Ánh Sao miễn phí!
+                </p>
+            </a>
+            <a href="tin-tuc-3.html" class="project">
+                 <img class="project-image" src="https://th.bing.com/th/id/OIP.jmaUvmJB76fjwtimrADy_AHaEK?w=322&h=181&c=7&r=0&o=5&pid=1.7">
+                <p class="project-title">
+                    Hướng dẫn build Acheron: Nón ánh sáng và Di vật tối ưu
+                </p>
+            </a>
+            <a href="tin-tuc-4.html" class="project">
+                 <img class="project-image" src="https://th.bing.com/th/id/OIP.JZUIzeV9ZysFnlHCsHau5AHaED?w=330&h=180&c=7&r=0&o=5&pid=1.7]">
+                 <p class="project-title">
+                     Rò rỉ thông tin: Nhân vật Sam và Firefly sắp ra mắt?
+                 </p>
+            </a>
+            <a href="tin-tuc-5.html" class="project">
+                 <img class="project-image" src="https://landofgames.ru/uploads/posts/2024-03/1711036852_1.webp">
+                 <p class="project-title">
+                     Vũ Trụ Mô Phỏng: Thế Giới 9 - Kẻ địch và phần thưởng mới
+                 </p>
+            </a>
+            <a href="tin-tuc-6.html" class="project">
+                 <img class="project-image" src="https://cdn.sforum.vn/sforum/wp-content/uploads/2024/01/nhan-vat-penacony-5.jpg">
+                 <p class="project-title">
+                     Phân tích cốt truyện Penacony: Những bí ẩn chưa được giải đáp
+                 </p>
+            </a>
+        </div>
+        <a href="#" class="news-button"> Xem thêm tin tức
+            <i class="fas fa-chevron-right"></i> </a>
+
+    </section>
+
+    <section id="contact">
+        <div class="contact-section-header">
+            <h2>Hãy cùng làm việc...</h2>
+            <p>Các Trang Khác Về Tôi</p>
+        </div>
+        <div class="contact-links">
+            <a href="https://facebook.com/freecodecamp" target="_blank" class="contact-details"> <i class="fab fa-facebook-square"></i> Facebook
+            </a>
+            <a id="profile-link" href="https://github.com/freecodecamp" target="_blank" class="contact-details">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://twitter.com/freecodecamp" target="_blank" class="contact-details">
+                <i class="fab fa-twitter"></i> Twitter
+            </a>
+            <a href="mailto:example@example.com" class="contact-details">
+                <i class="fas fa-at"></i> Gửi mail
+            </a>
+            <a href="tel:555-555-5555" class="contact-details">
+                <i class="fas fa-mobile-alt"></i> Gọi tôi
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            **Đây chỉ là một trang tin giả. Tất cả tin và chi tiết liên hệ
+            đưa ra không có thật.
+        </p>
+        <p>
+            © Tạo cho <a href="https://codeclean.org/" target="_blank">CodeClean <i class="fas fa-terminal"></i></a> </p>
+    </footer>
+
+</body>
+</html>
